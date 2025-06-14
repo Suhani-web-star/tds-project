@@ -17,15 +17,6 @@ import uvicorn
 import traceback
 from dotenv import load_dotenv
 
-from fastapi import FastAPI
-
-app = FastAPI()
-
-@app.get("/")
-def read_root():
-    return {"message": "Hello from FastAPI on Render!"}
-
-
 # Configure logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
@@ -53,6 +44,9 @@ class QueryResponse(BaseModel):
 
 # Initialize FastAPI app
 app = FastAPI(title="RAG Query API", description="API for querying the RAG knowledge base")
+@app.get("/")
+def read_root():
+    return {"message": "Hello from FastAPI on Render!"}
 
 # Add CORS middleware
 app.add_middleware(
