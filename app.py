@@ -47,6 +47,9 @@ app = FastAPI(title="RAG Query API", description="API for querying the RAG knowl
 @app.get("/")
 def read_root():
     return {"message": "Hello from FastAPI on Render!"}
+@app.post("/")
+def root_post():
+    return {"message": "POST to / is not supported. Use /query instead."}
 
 # Add CORS middleware
 app.add_middleware(
